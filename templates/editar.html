@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Cita{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title mb-4 text-center">Editar Cita</h2>
+
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Mascota</label>
+                        <input type="text" name="mascota" class="form-control" value="{{ paciente.mascota }}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Propietario</label>
+                        <input type="text" name="propietario" class="form-control" value="{{ paciente.propietario }}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Especie</label>
+                        <input type="text" name="especie" class="form-control" value="{{ paciente.especie }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Fecha</label>
+                        <input type="text" name="fecha" class="form-control" value="{{ paciente.fecha }}" required>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-warning">Actualizar Cita</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

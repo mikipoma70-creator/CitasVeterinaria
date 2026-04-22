@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Agendar Cita{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title mb-4 text-center">Registrar Nueva Cita</h2>
+
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Mascota</label>
+                        <input type="text" name="mascota" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Propietario</label>
+                        <input type="text" name="propietario" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Especie</label>
+                        <input type="text" name="especie" class="form-control" placeholder="Ej. Perro, Gato, Ave">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Fecha</label>
+                        <input type="text" name="fecha" class="form-control" placeholder="Ej. 22/04/2026 10:30 AM" required>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-success">Guardar Cita</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Agenda de Citas{% endblock %}
+
+{% block content %}
+<h2 class="mb-4 text-center">Agenda de Citas Médicas</h2>
+
+{% if pacientes %}
+    <div class="row">
+        {% for paciente in pacientes %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ paciente.mascota }}</h5>
+                    <p class="card-text"><strong>Propietario:</strong> {{ paciente.propietario }}</p>
+                    <p class="card-text"><strong>Especie:</strong> {{ paciente.especie }}</p>
+                    <p class="card-text"><strong>Fecha:</strong> {{ paciente.fecha }}</p>
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('editar', id=paciente.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{{ url_for('eliminar', id=paciente.id) }}" class="btn btn-danger btn-sm"
+                           onclick="return confirm('¿Seguro que deseas eliminar esta cita?')">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="alert alert-info text-center">
+        No hay citas registradas todavía.
+    </div>
+{% endif %}
+{% endblock %}
